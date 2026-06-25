@@ -1,0 +1,15 @@
+Index: .idea/otus_repo.iml
+===================================================================
+diff --git a/.idea/otus_repo.iml b/.idea/otus_repo.iml
+new file mode 100644
+--- /dev/null	(date 1781813241354)
++++ b/.idea/otus_repo.iml	(date 1781813241354)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module version="4">
++  <component name="PyDocumentationSettings">
++    <option name="format" value="PLAIN" />
++    <option name="myDocStringFormat" value="Plain" />
++  </component>
++</module>
+\ No newline at end of file

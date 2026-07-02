@@ -20,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="check_linters" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -31,22 +31,22 @@
     &quot;assignee&quot;: &quot;AlexandraGuseva&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/AlexandraGuseva/otus_repo.git&quot;,
-    &quot;accountId&quot;: &quot;389bd17f-676a-4dad-b93b-3717a0b012d2&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:AlexandraGuseva/otus_repo.git",
+    "accountId": "389bd17f-676a-4dad-b93b-3717a0b012d2"
   },
-  &quot;recentNewPullRequestHead&quot;: {
-    &quot;server&quot;: {
-      &quot;useHttp&quot;: false,
-      &quot;host&quot;: &quot;github.com&quot;,
-      &quot;port&quot;: null,
-      &quot;suffix&quot;: null
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
     },
-    &quot;owner&quot;: &quot;AlexandraGuseva&quot;,
-    &quot;repository&quot;: &quot;otus_repo&quot;
+    "owner": "AlexandraGuseva",
+    "repository": "otus_repo"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -62,25 +62,103 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python tests.Python tests for test_Circle.test_circle_negative_radius.executor": "Run",
+    "Python tests.Python tests for test_Figure.test_add_area_invalid_arguments.executor": "Run",
+    "Python tests.Python tests for test_Figure.test_add_area_success.executor": "Run",
+    "Python tests.Python tests for test_Rectangle.test_rectangle_area.executor": "Run",
+    "Python tests.Python tests in test_Rectangle.py.executor": "Run",
     "Python.Circle.executor": "Run",
     "Python.Figure.executor": "Run",
     "Python.Rectangle.executor": "Run",
     "Python.Square.executor": "Run",
     "Python.Triangle.executor": "Run",
     "Python.circle.executor": "Run",
+    "Python.conftest.executor": "Run",
     "Python.fix_me.executor": "Run",
     "Python.square.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "settings.editor.selected.configurable": "settings.sync"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "#4 on check__linters",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
     </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Python tests for test_Circle.test_circle_negative_radius">
+    <configuration name="Python tests for test_Circle.test_circle_negative_radius" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="otus_repo" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_Circle.test_circle_negative_radius&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_Figure.test_add_area_invalid_arguments" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="otus_repo" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_Figure.test_add_area_invalid_arguments&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_Figure.test_add_area_success" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="otus_repo" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_Figure.test_add_area_success&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_Rectangle.test_rectangle_area" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="otus_repo" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_Rectangle.test_rectangle_area&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for test_Circle.test_circle_negative_radius" />
+        <item itemvalue="Python tests.Python tests for test_Figure.test_add_area_invalid_arguments" />
+        <item itemvalue="Python tests.Python tests for test_Figure.test_add_area_success" />
+        <item itemvalue="Python tests.Python tests for test_Rectangle.test_rectangle_area" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>

@@ -20,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="check_linters" />
+        <entry key="$PROJECT_DIR$" value="lesson_6" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -62,6 +62,22 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python tests.pytest for conftest.test_get_all_breeds.executor": "Run",
+    "Python tests.pytest for conftest.test_get_random_dog_image.executor": "Run",
+    "Python tests.pytest for test_brewery_api.test_breweries_have_required_fields.executor": "Run",
+    "Python tests.pytest for test_brewery_api.test_filter_by_brewery_type.executor": "Run",
+    "Python tests.pytest for test_brewery_api.test_filter_by_city.executor": "Run",
+    "Python tests.pytest for test_brewery_api.test_get_all_breweries.executor": "Run",
+    "Python tests.pytest for test_brewery_api.test_limit_results.executor": "Run",
+    "Python tests.pytest for test_dog_api.test_invalid_breed.executor": "Run",
+    "Python tests.pytest for test_gorest.test_public_v2_users.executor": "Run",
+    "Python tests.pytest for test_placeholder_api.test_create_post.executor": "Run",
+    "Python tests.pytest for test_placeholder_api.test_delete_post.executor": "Run",
+    "Python tests.pytest for test_placeholder_api.test_get_all_posts.executor": "Run",
+    "Python tests.pytest for test_placeholder_api.test_get_multiple_posts.executor": "Run",
+    "Python tests.pytest for test_placeholder_api.test_get_single_post.executor": "Run",
+    "Python tests.pytest for test_placeholder_api.test_update_post.executor": "Run",
+    "Python tests.pytest for test_url_status.test_check_status_code.executor": "Run",
     "Python.Circle.executor": "Run",
     "Python.Figure.executor": "Run",
     "Python.Rectangle.executor": "Run",
@@ -72,15 +88,121 @@
     "Python.square.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "lesson7__rest__api",
     "settings.editor.selected.configurable": "settings.sync"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/tests" />
+      <recent name="$PROJECT_DIR$/lesson7_rest_api" />
+      <recent name="$PROJECT_DIR$/lesson7_rest_api/hw_api_tests" />
+      <recent name="$PROJECT_DIR$/src" />
     </key>
+  </component>
+  <component name="RunManager" selected="Python tests.pytest for test_url_status.test_check_status_code">
+    <configuration name="pytest for test_placeholder_api.test_create_post" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="otus_repo" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lesson7_rest_api/hw_api_tests/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_placeholder_api.test_create_post&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_placeholder_api.test_delete_post" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="otus_repo" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lesson7_rest_api/hw_api_tests/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_placeholder_api.test_delete_post&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_placeholder_api.test_get_multiple_posts" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="otus_repo" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lesson7_rest_api/hw_api_tests/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_placeholder_api.test_get_multiple_posts&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_placeholder_api.test_update_post" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="otus_repo" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lesson7_rest_api/hw_api_tests/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_placeholder_api.test_update_post&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_url_status.test_check_status_code" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="otus_repo" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lesson7_rest_api/hw_api_tests/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;--url\u003dhttps://ya.ru --status_code\u003d200&quot;" />
+      <option name="_new_target" value="&quot;test_url_status.test_check_status_code&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python tests.pytest for test_placeholder_api.test_create_post" />
+      <item itemvalue="Python tests.pytest for test_placeholder_api.test_delete_post" />
+      <item itemvalue="Python tests.pytest for test_placeholder_api.test_get_multiple_posts" />
+      <item itemvalue="Python tests.pytest for test_placeholder_api.test_update_post" />
+      <item itemvalue="Python tests.pytest for test_url_status.test_check_status_code" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.pytest for test_url_status.test_check_status_code" />
+        <item itemvalue="Python tests.pytest for test_placeholder_api.test_delete_post" />
+        <item itemvalue="Python tests.pytest for test_placeholder_api.test_update_post" />
+        <item itemvalue="Python tests.pytest for test_placeholder_api.test_create_post" />
+        <item itemvalue="Python tests.pytest for test_placeholder_api.test_get_multiple_posts" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>

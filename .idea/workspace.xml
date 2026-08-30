@@ -4,7 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d85c38a-bddd-40cf-9537-14c66794f1cf" name="Changes" comment="fixed file" />
+    <list default="true" id="5d85c38a-bddd-40cf-9537-14c66794f1cf" name="Changes" comment="fixed file">
+      <change afterPath="$PROJECT_DIR$/element_waits/index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_debug.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_simple.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fix_me.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw_lesson_6/books.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw_lesson_6/result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw_lesson_6/script.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw_lesson_6/users.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson7_rest_api/hw_api_tests/tests/conftest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson7_rest_api/hw_api_tests/tests/test_brewery_api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson7_rest_api/hw_api_tests/tests/test_dog_api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson7_rest_api/hw_api_tests/tests/test_placeholder_api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson7_rest_api/hw_api_tests/tests/test_url_status.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson7_rest_api/test_gorest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Circle.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Figure.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rectangle.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Square.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Triangle.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_Rectangle.py" beforeDir="false" afterPath="$PROJECT_DIR$/element_waits/docker-compose.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,22 +55,22 @@
     &quot;assignee&quot;: &quot;AlexandraGuseva&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/AlexandraGuseva/otus_repo.git&quot;,
-    &quot;accountId&quot;: &quot;389bd17f-676a-4dad-b93b-3717a0b012d2&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:AlexandraGuseva/otus_repo.git",
+    "accountId": "389bd17f-676a-4dad-b93b-3717a0b012d2"
   },
-  &quot;recentNewPullRequestHead&quot;: {
-    &quot;server&quot;: {
-      &quot;useHttp&quot;: false,
-      &quot;host&quot;: &quot;github.com&quot;,
-      &quot;port&quot;: null,
-      &quot;suffix&quot;: null
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
     },
-    &quot;owner&quot;: &quot;AlexandraGuseva&quot;,
-    &quot;repository&quot;: &quot;otus_repo&quot;
+    "owner": "AlexandraGuseva",
+    "repository": "otus_repo"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -62,6 +86,9 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python tests.Python tests for test_prestashop.test_title.executor": "Run",
+    "Python tests.Python tests for test_scenarios.TestScenarios.test_admin_login_logout.executor": "Run",
+    "Python tests.Python tests for test_scenarios.TestScenarios.test_currency_change_on_catalog_page.executor": "Run",
     "Python tests.pytest for conftest.test_get_all_breeds.executor": "Run",
     "Python tests.pytest for conftest.test_get_random_dog_image.executor": "Run",
     "Python tests.pytest for test_brewery_api.test_breweries_have_required_fields.executor": "Run",
@@ -83,13 +110,14 @@
     "Python.Rectangle.executor": "Run",
     "Python.Square.executor": "Run",
     "Python.Triangle.executor": "Run",
+    "Python.ai_assistent.executor": "Run",
     "Python.circle.executor": "Run",
     "Python.fix_me.executor": "Run",
     "Python.square.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "lesson7__rest__api",
-    "settings.editor.selected.configurable": "settings.sync"
+    "git-widget-placeholder": "hw__element__waits",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -101,72 +129,71 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_url_status.test_check_status_code">
-    <configuration name="pytest for test_placeholder_api.test_create_post" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.Python tests for test_prestashop.test_title">
+    <configuration name="ai_assistent" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="otus_repo" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ai_assistent.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_prestashop.test_title" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="otus_repo" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lesson7_rest_api/hw_api_tests/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_placeholder_api.test_create_post&quot;" />
+      <option name="_new_target" value="&quot;test_prestashop.test_title&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_placeholder_api.test_delete_post" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_scenarios.TestScenarios.test_admin_login_logout" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="otus_repo" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lesson7_rest_api/hw_api_tests/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_placeholder_api.test_delete_post&quot;" />
+      <option name="_new_target" value="&quot;test_scenarios.TestScenarios.test_admin_login_logout&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_placeholder_api.test_get_multiple_posts" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_scenarios.TestScenarios.test_currency_change_on_catalog_page" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="otus_repo" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lesson7_rest_api/hw_api_tests/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_placeholder_api.test_get_multiple_posts&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_placeholder_api.test_update_post" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="otus_repo" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lesson7_rest_api/hw_api_tests/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_placeholder_api.test_update_post&quot;" />
+      <option name="_new_target" value="&quot;test_scenarios.TestScenarios.test_currency_change_on_catalog_page&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -188,19 +215,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python tests.pytest for test_placeholder_api.test_create_post" />
-      <item itemvalue="Python tests.pytest for test_placeholder_api.test_delete_post" />
-      <item itemvalue="Python tests.pytest for test_placeholder_api.test_get_multiple_posts" />
-      <item itemvalue="Python tests.pytest for test_placeholder_api.test_update_post" />
+      <item itemvalue="Python.ai_assistent" />
+      <item itemvalue="Python tests.Python tests for test_prestashop.test_title" />
+      <item itemvalue="Python tests.Python tests for test_scenarios.TestScenarios.test_admin_login_logout" />
+      <item itemvalue="Python tests.Python tests for test_scenarios.TestScenarios.test_currency_change_on_catalog_page" />
       <item itemvalue="Python tests.pytest for test_url_status.test_check_status_code" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_prestashop.test_title" />
+        <item itemvalue="Python tests.Python tests for test_scenarios.TestScenarios.test_admin_login_logout" />
+        <item itemvalue="Python tests.Python tests for test_scenarios.TestScenarios.test_currency_change_on_catalog_page" />
+        <item itemvalue="Python.ai_assistent" />
         <item itemvalue="Python tests.pytest for test_url_status.test_check_status_code" />
-        <item itemvalue="Python tests.pytest for test_placeholder_api.test_delete_post" />
-        <item itemvalue="Python tests.pytest for test_placeholder_api.test_update_post" />
-        <item itemvalue="Python tests.pytest for test_placeholder_api.test_create_post" />
-        <item itemvalue="Python tests.pytest for test_placeholder_api.test_get_multiple_posts" />
       </list>
     </recent_temporary>
   </component>

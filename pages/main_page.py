@@ -2,7 +2,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.action_chains import ActionChains
 import re
+import time
 
 
 class MainPage(BasePage):
@@ -29,19 +32,19 @@ class MainPage(BasePage):
         return self
 
     def is_logo_displayed(self):
-        return self.find_element(self.LOGO).is_displayed()
+        return self.wait_for_element(self.LOGO).is_displayed()
 
     def is_search_input_displayed(self):
-        return self.find_element(self.SEARCH_INPUT).is_displayed()
+        return self.wait_for_element(self.SEARCH_INPUT).is_displayed()
 
     def is_cart_button_displayed(self):
-        return self.find_element(self.CART_BUTTON).is_displayed()
+        return self.wait_for_element(self.CART_BUTTON).is_displayed()
 
     def is_main_menu_displayed(self):
-        return self.find_element(self.MAIN_MENU).is_displayed()
+        return self.wait_for_element(self.MAIN_MENU).is_displayed()
 
     def is_product_list_displayed(self):
-        return self.find_element(self.PRODUCT_LIST).is_displayed()
+        return self.wait_for_element(self.PRODUCT_LIST).is_displayed()
 
     def get_first_product_name(self):
         return self.get_text(self.FIRST_PRODUCT_NAME)
@@ -53,19 +56,24 @@ class MainPage(BasePage):
             return float(price_match.group().replace(',', '.'))
         return 0.0
 
-    def add_first_product_to_cart(self):
-        from selenium.webdriver.common.action_chains import ActionChains
-        from selenium.webdriver.common.by import By
-        from selenium.webdriver.support.ui import WebDriverWait
-        from selenium.webdriver.support import expected_conditions as EC
+    def click_first_product(self):
+        product_link = self.wait_for_element(self.FIRST_PRODUCT_NAME)
+        self.driver.execute_script("arguments[0].click();", product_link)
+        return self
 
-        product = self.find_element(self.FIRST_PRODUCT)
+    def add_first_product_to_cart(self):
+        product = self.wait_for_element(self.FIRST_PRODUCT)
         actions = ActionChains(self.driver)
         actions.move_to_element(product).perform()
 
-        add_button = self.find_element(
+        add_button = self.wait_for_element(
             (By.CSS_SELECTOR, ".product-miniature:first-child button[data-button-action='add-to-cart']"))
-        self.driver.execute_script("arguments[0].click();", add_button)
+
+        # Пробуем стандартный клик, если не получается — используем JavaScript
+        try:
+            add_button.click()
+        except Exception:
+            self.driver.execute_script("arguments[0].click();", add_button)
 
         close_button = WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.CSS_SELECTOR, "#blockcart-modal > div > div > div.modal-header > button"))
@@ -76,16 +84,13 @@ class MainPage(BasePage):
 
     def switch_currency(self, currency_symbol):
         """Переключает валюту через выпадающий список <select>"""
-        from selenium.webdriver.support.ui import Select
-        import time
 
-        select_element = self.wait_for_element((By.CSS_SELECTOR, "#_desktop_ps_currencyselector > div > select"))
+        select_element = self.wait_for_element(self.CURRENCY_DROPDOWN)
         select = Select(select_element)
 
         for option in select.options:
             if currency_symbol in option.text:
                 select.select_by_visible_text(option.text)
-                time.sleep(2)
+                time.sleep(1)
                 return self
-
         raise ValueError(f"Валюта {currency_symbol} не найдена в выпадающем списке")

@@ -20,46 +20,39 @@ class BasePage:
             self.driver.get(self.base_url + url)
         return self
 
-    def switch_to_iframe(self):
-        """Переключение на iframe (если есть)"""
-        print("ℹ️   iframe не используется, работаем напрямую")
-        return self
+    def wait_for_element(self, locator, timeout=10):
+        """Ожидает видимость элемента."""
+        return WebDriverWait(self.driver, timeout).until(
+            EC.visibility_of_element_located(locator)
+        )
 
-    def find_element(self, locator, timeout=10):
-        """Явное ожидание видимости элемента (один элемент)"""
-        try:
-            return WebDriverWait(self.driver, timeout).until(
-                EC.visibility_of_element_located(locator)
-            )
-        except TimeoutException:
-            return self.driver.find_element(*locator)
+    def wait_for_clickable(self, locator, timeout=10):
+        """Ожидает, что элемент станет кликабельным"""
+        return WebDriverWait(self.driver, timeout).until(
+            EC.element_to_be_clickable(locator)
+        )
 
-    def find_elements(self, locator, timeout=10):
-        """Явное ожидание видимости элементов (список)"""
-        try:
-            return WebDriverWait(self.driver, timeout).until(
-                EC.visibility_of_all_elements_located(locator)
-            )
-        except TimeoutException:
-            return self.driver.find_elements(*locator)
+    def wait_for_presence(self, locator, timeout=10):
+        """Ожидает появления элемента в DOM"""
+        return WebDriverWait(self.driver, timeout).until(
+            EC.presence_of_element_located(locator)
+        )
 
     def click(self, locator, timeout=10):
         """Клик по элементу с ожиданием кликабельности"""
-        element = WebDriverWait(self.driver, timeout).until(
-            EC.element_to_be_clickable(locator)
-        )
+        element = self.wait_for_clickable(locator, timeout)
         element.click()
         return self
 
     def get_text(self, locator, timeout=10):
         """Получение текста элемента"""
-        return self.find_element(locator, timeout).text
+        return self.wait_for_element(locator, timeout).text
 
     def is_displayed(self, locator, timeout=10):
-        """Проверяет, отображается ли элемент"""
+        """Проверяет - отображается ли элемент"""
         try:
-            return self.find_element(locator, timeout).is_displayed()
-        except:
+            return self.wait_for_element(locator, timeout).is_displayed()
+        except TimeoutException:
             return False
 
     def get_title(self):
@@ -67,21 +60,3 @@ class BasePage:
 
     def get_current_url(self):
         return self.driver.current_url
-
-    def wait_for_element(self, locator, timeout=10):
-        """Ждёт, пока элемент станет видимым"""
-        return WebDriverWait(self.driver, timeout).until(
-            EC.visibility_of_element_located(locator)
-        )
-
-    def wait_for_clickable(self, locator, timeout=10):
-        """Ждёт, пока элемент станет кликабельным"""
-        return WebDriverWait(self.driver, timeout).until(
-            EC.element_to_be_clickable(locator)
-        )
-
-    def wait_for_presence(self, locator, timeout=10):
-        """Ждёт, пока элемент появится в DOM"""
-        return WebDriverWait(self.driver, timeout).until(
-            EC.presence_of_element_located(locator)
-        )

@@ -1,5 +1,8 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 import re
 
 
@@ -15,22 +18,32 @@ class CatalogPage(BasePage):
 
     def open(self, url=""):
         super().open(url)
-        self.switch_to_iframe()
         return self
 
     def get_category_title(self):
         return self.get_text(self.CATEGORY_TITLE)
 
     def is_product_list_displayed(self):
-        return self.find_element(self.PRODUCT_LIST).is_displayed()
+        return self.is_displayed(self.PRODUCT_LIST)
+
+    def find_elements(self, locator, timeout=10):
+        """Возвращает список элементов (с ожиданием появления хотя бы одного)."""
+        try:
+            return WebDriverWait(self.driver, timeout).until(
+                EC.visibility_of_all_elements_located(locator)
+            )
+        except TimeoutException:
+            return []
 
     def get_product_count(self):
-        return len(self.find_elements(self.PRODUCTS))
+        """Возвращает количество товаров в каталоге."""
+        products = self.find_elements(self.PRODUCTS)
+        return len(products)
 
     def is_pagination_displayed(self):
         try:
-            return self.find_element(self.PAGINATION).is_displayed()
-        except:
+            return self.is_displayed(self.PAGINATION)
+        except TimeoutException:
             return False
 
     def get_first_product_price(self):

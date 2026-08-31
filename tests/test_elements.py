@@ -39,16 +39,12 @@ class TestElements:
         main_page.open("/")
 
         product_name = main_page.get_first_product_name()
-        print(f"🔍 Название товара: {product_name}")
 
-        product_link = browser.find_element(By.CSS_SELECTOR,
-                                            "#content > section.ps-featuredproducts > div > div.module-products__list > div > article:nth-child(1) > div > div.product-miniature__bottom > div.product-miniature__infos > a")
-        browser.execute_script("arguments[0].click();", product_link)
+        main_page.click_first_product()
 
         time.sleep(3)
 
         page_text = browser.find_element(By.TAG_NAME, "body").text
-        print(f"📄  Текст страницы (первые 500 символов): {page_text[:500]}")
 
         assert product_name.lower() in page_text.lower(), f"Название '{product_name}' не найдено на странице"
 
@@ -58,8 +54,6 @@ class TestElements:
         add_to_cart_buttons = browser.find_elements(By.CSS_SELECTOR,
                                                     "button[data-button-action='add-to-cart'], .add-to-cart, button[type='submit']")
         assert len(add_to_cart_buttons) > 0, "Кнопка 'В корзину' не найдена"
-
-        print(f"✅ Карточка товара '{product_name}' успешно открыта и проверена!")
 
     def test_admin_login_page_elements(self, browser, base_url):
         """проверка админки"""

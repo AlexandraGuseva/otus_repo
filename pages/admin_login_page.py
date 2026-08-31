@@ -12,22 +12,18 @@ class AdminLoginPage(BasePage):
     FORGOT_PASSWORD_LINK = (By.CSS_SELECTOR, "#forgot-password-link")
 
     def open_admin_page(self):
-        """Открывает страницу входа в админку"""
         self.open("/admin-dev")
         return self
 
     def enter_email(self, email):
-        """Вводит email в поле"""
         self.wait_for_element(self.EMAIL_INPUT).send_keys(email)
         return self
 
     def enter_password(self, password):
-        """Вводит пароль в поле"""
         self.wait_for_element(self.PASSWORD_INPUT).send_keys(password)
         return self
 
     def click_login_in(self):
-        """Нажимает кнопку входа"""
         self.click(self.LOGIN_BUTTON)
         return self
 

@@ -221,3 +221,9 @@ hw_lesson_6/books.csv
 hw_lesson_6/users.json
 
 .idea/
+
+allure-results/
+allure-report/
+test.log
+_pycache_/
+

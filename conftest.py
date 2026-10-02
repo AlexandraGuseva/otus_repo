@@ -1,8 +1,19 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import Service as ChromeService
+import logging
+import allure
+
+# ========== НАСТРОЙКА ЛОГИРОВАНИЯ ==========
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('test.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
 
 
 def pytest_addoption(parser):
@@ -21,6 +32,8 @@ def browser(request):
     base_url = request.config.getoption("--base_url")
     request.config.base_url = base_url
 
+    logger.info(f"Запуск браузера: {browser_name}")
+
     if browser_name == 'chrome':
         options = ChromeOptions()
         if headless:
@@ -35,6 +48,8 @@ def browser(request):
     browser.implicitly_wait(5)
 
     yield browser
+
+    logger.info("Закрытие браузера")
     browser.quit()
 
 
@@ -46,7 +61,27 @@ def base_url(request):
 @pytest.fixture
 def pages(browser, base_url):
     from pages.admin_login_page import AdminLoginPage
-
     return {
         "administration": AdminLoginPage(browser, base_url),
     }
+
+
+# ========== ALLURE: СКРИНШОТЫ ПРИ ПАДЕНИИ ==========
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    outcome = yield
+    report = outcome.get_result()
+
+    if report.when == "call" and report.failed:
+        if "browser" in item.fixturenames:
+            browser = item.funcargs["browser"]
+            try:
+                screenshot = browser.get_screenshot_as_png()
+                allure.attach(
+                    screenshot,
+                    name="screenshot",
+                    attachment_type=allure.attachment_type.PNG
+                )
+                logger.error(f"Тест {item.name} упал. Скриншот добавлен.")
+            except Exception as e:
+                logger.error(f"Не удалось сделать скриншот: {e}")

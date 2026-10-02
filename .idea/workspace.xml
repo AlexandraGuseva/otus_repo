@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d85c38a-bddd-40cf-9537-14c66794f1cf" name="Changes" comment="fixed file">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/admin_login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin_login_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/base_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/base_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/catalog_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/catalog_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/main_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/product_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/product_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/registration_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/registration_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_debug.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_elements.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_elements.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_scenarios.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_scenarios.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_simple.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +107,7 @@
     &quot;Python.square.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;hw__element__waits&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#8 on hw__element__waits&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>

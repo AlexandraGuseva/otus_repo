@@ -19,8 +19,6 @@ class TestScenarios:
     @allure.title("Логин-разлогин в админку")
     def test_admin_login_logout(self, browser, base_url):
         """логин-разлогин админки"""
-        logger.info("=== Запуск теста: test_admin_login_logout ===")
-
         with allure.step("Открыть страницу админки"):
             admin_page = AdminLoginPage(browser, base_url)
             admin_page.open_admin_page()
@@ -45,8 +43,6 @@ class TestScenarios:
     @allure.title("Добавление случайного товара с главной страницы в корзину")
     def test_add_random_product_to_cart(self, browser, base_url):
         """случайный товар с главной страницы в корзину"""
-        logger.info("=== Запуск теста: test_add_random_product_to_cart ===")
-
         main_page = MainPage(browser, base_url)
 
         with allure.step("Открыть главную страницу"):
@@ -54,6 +50,7 @@ class TestScenarios:
 
         with allure.step("Получить название первого товара"):
             product_name = main_page.get_first_product_name()
+            logger.info(f"Название первого товара: {product_name}")
 
         with allure.step("Добавить товар в корзину"):
             main_page.add_first_product_to_cart()
@@ -73,8 +70,6 @@ class TestScenarios:
     @allure.title("Проверка смены цен при переключении валюты на главной")
     def test_currency_change_on_main_page(self, browser, base_url):
         """проверка, что при переключении валют цены меняются на главной"""
-        logger.info("=== Запуск теста: test_currency_change_on_main_page ===")
-
         main_page = MainPage(browser, base_url)
 
         with allure.step("Открыть главную страницу"):
@@ -83,12 +78,11 @@ class TestScenarios:
         with allure.step("Определить текущую валюту и цену"):
             current_currency = main_page.get_current_currency()
             price_before = main_page.get_first_product_price()
-            logger.info(f"Текущая валюта: {current_currency}, цена: {price_before}")
+            logger.info(f"Валюта до переключения: {current_currency}, цена: {price_before}")
 
         with allure.step("Переключиться на другую валюту"):
             new_currency = "$" if "€" in current_currency else "€"
             main_page.switch_currency(new_currency)
-            logger.info(f"Переключение с {current_currency} на {new_currency}")
 
         with allure.step("Проверить, что цена изменилась"):
             price_after = main_page.get_first_product_price()
@@ -96,38 +90,35 @@ class TestScenarios:
             assert price_before != price_after, \
                 f"Цена не изменилась при переключении с {current_currency} на {new_currency}"
 
-            @allure.feature("Валюта")
-            @allure.story("Переключение валюты в каталоге")
-            @allure.title("Проверка смены цен при переключении валюты в каталоге")
-            def test_currency_change_on_catalog_page(self, browser, base_url):
-                """проверка, что при переключении валют цены меняются в каталоге"""
-                logger.info("=== Запуск теста: test_currency_change_on_catalog_page ===")
+    @allure.feature("Валюта")
+    @allure.story("Переключение валюты в каталоге")
+    @allure.title("Проверка смены цен при переключении валюты в каталоге")
+    def test_currency_change_on_catalog_page(self, browser, base_url):
+        """проверка, что при переключении валют цены меняются в каталоге"""
+        catalog_page = CatalogPage(browser, base_url)
+        main_page = MainPage(browser, base_url)
 
-                catalog_page = CatalogPage(browser, base_url)
-                main_page = MainPage(browser, base_url)
+        with allure.step("Открыть каталог"):
+            catalog_page.open("/3-clothes")
 
-                with allure.step("Открыть каталог"):
-                    catalog_page.open("/3-clothes")
+        with allure.step("Получить цену до переключения"):
+            price_before = catalog_page.get_first_product_price()
+            logger.info(f"Цена до переключения: {price_before}")
 
-                with allure.step("Получить цену до переключения"):
-                    price_before = catalog_page.get_first_product_price()
-                    logger.info(f"Цена до переключения: {price_before}")
+        with allure.step("Определить текущую валюту через главную"):
+            main_page.open("/")
+            current_currency = main_page.get_current_currency()
 
-                with allure.step("Определить текущую валюту через главную"):
-                    main_page.open("/")
-                    current_currency = main_page.get_current_currency()
-                    logger.info(f"Текущая валюта: {current_currency}")
+        with allure.step("Переключиться на другую валюту"):
+            new_currency = "$" if "€" in current_currency else "€"
+            main_page.switch_currency(new_currency)
+            logger.info(f"Переключение с {current_currency} на {new_currency}")
 
-                with allure.step("Переключиться на другую валюту"):
-                    new_currency = "$" if "€" in current_currency else "€"
-                    main_page.switch_currency(new_currency)
-                    logger.info(f"Переключение с {current_currency} на {new_currency}")
+        with allure.step("Снова открыть каталог"):
+            catalog_page.open("/3-clothes")
 
-                with allure.step("Снова открыть каталог"):
-                    catalog_page.open("/3-clothes")
-
-                with allure.step("Проверить, что цена изменилась"):
-                    price_after = catalog_page.get_first_product_price()
-                    logger.info(f"Цена после переключения: {price_after}")
-                    assert price_before != price_after, \
-                        f"Цена не изменилась при переключении с {current_currency} на {new_currency}"
+        with allure.step("Проверить, что цена изменилась"):
+            price_after = catalog_page.get_first_product_price()
+            logger.info(f"Цена после переключения: {price_after}")
+            assert price_before != price_after, \
+                f"Цена не изменилась при переключении с {current_currency} на {new_currency}"

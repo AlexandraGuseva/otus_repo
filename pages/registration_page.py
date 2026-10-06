@@ -16,25 +16,19 @@ class RegistrationPage(BasePage):
     TERMS_CHECKBOX = (By.CSS_SELECTOR, "input#field-optin")
 
     def is_form_displayed(self):
-        logger.info("Проверка отображения формы регистрации")
         return self.wait_for_element(self.REGISTRATION_FORM).is_displayed()
 
     def is_first_name_displayed(self):
-        logger.info("Проверка отображения поля имени")
         return self.wait_for_element(self.FIRST_NAME).is_displayed()
 
     def is_last_name_displayed(self):
-        logger.info("Проверка отображения поля фамилии")
         return self.wait_for_element(self.LAST_NAME).is_displayed()
 
     def is_email_displayed(self):
-        logger.info("Проверка отображения поля email")
         return self.wait_for_element(self.EMAIL).is_displayed()
 
     def is_password_displayed(self):
-        logger.info("Проверка отображения поля пароля")
         return self.wait_for_element(self.PASSWORD).is_displayed()
 
     def is_terms_displayed(self):
-        logger.info("Проверка отображения чекбокса согласия")
         return self.wait_for_element(self.TERMS_CHECKBOX).is_displayed()

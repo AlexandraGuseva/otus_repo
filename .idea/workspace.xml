@@ -5,20 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d85c38a-bddd-40cf-9537-14c66794f1cf" name="Changes" comment="fixed file">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/admin_login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin_login_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/base_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/base_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/catalog_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/catalog_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/main_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/product_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/product_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/registration_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/registration_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_debug.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_elements.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_elements.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_scenarios.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_scenarios.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_simple.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,44 +67,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python tests.Python tests for test_prestashop.test_title.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_scenarios.TestScenarios.test_admin_login_logout.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_scenarios.TestScenarios.test_currency_change_on_catalog_page.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for conftest.test_get_all_breeds.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for conftest.test_get_random_dog_image.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for test_brewery_api.test_breweries_have_required_fields.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for test_brewery_api.test_filter_by_brewery_type.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for test_brewery_api.test_filter_by_city.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for test_brewery_api.test_get_all_breweries.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for test_brewery_api.test_limit_results.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for test_dog_api.test_invalid_breed.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for test_gorest.test_public_v2_users.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for test_placeholder_api.test_create_post.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for test_placeholder_api.test_delete_post.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for test_placeholder_api.test_get_all_posts.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for test_placeholder_api.test_get_multiple_posts.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for test_placeholder_api.test_get_single_post.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for test_placeholder_api.test_update_post.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest for test_url_status.test_check_status_code.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Circle.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Figure.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Rectangle.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Square.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Triangle.executor&quot;: &quot;Run&quot;,
-    &quot;Python.ai_assistent.executor&quot;: &quot;Run&quot;,
-    &quot;Python.circle.executor&quot;: &quot;Run&quot;,
-    &quot;Python.fix_me.executor&quot;: &quot;Run&quot;,
-    &quot;Python.square.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#8 on hw__element__waits&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python tests.Python tests for test_prestashop.test_title.executor": "Run",
+    "Python tests.Python tests for test_scenarios.TestScenarios.test_admin_login_logout.executor": "Run",
+    "Python tests.Python tests for test_scenarios.TestScenarios.test_currency_change_on_catalog_page.executor": "Run",
+    "Python tests.pytest for conftest.test_get_all_breeds.executor": "Run",
+    "Python tests.pytest for conftest.test_get_random_dog_image.executor": "Run",
+    "Python tests.pytest for test_brewery_api.test_breweries_have_required_fields.executor": "Run",
+    "Python tests.pytest for test_brewery_api.test_filter_by_brewery_type.executor": "Run",
+    "Python tests.pytest for test_brewery_api.test_filter_by_city.executor": "Run",
+    "Python tests.pytest for test_brewery_api.test_get_all_breweries.executor": "Run",
+    "Python tests.pytest for test_brewery_api.test_limit_results.executor": "Run",
+    "Python tests.pytest for test_dog_api.test_invalid_breed.executor": "Run",
+    "Python tests.pytest for test_gorest.test_public_v2_users.executor": "Run",
+    "Python tests.pytest for test_placeholder_api.test_create_post.executor": "Run",
+    "Python tests.pytest for test_placeholder_api.test_delete_post.executor": "Run",
+    "Python tests.pytest for test_placeholder_api.test_get_all_posts.executor": "Run",
+    "Python tests.pytest for test_placeholder_api.test_get_multiple_posts.executor": "Run",
+    "Python tests.pytest for test_placeholder_api.test_get_single_post.executor": "Run",
+    "Python tests.pytest for test_placeholder_api.test_update_post.executor": "Run",
+    "Python tests.pytest for test_url_status.test_check_status_code.executor": "Run",
+    "Python.Circle.executor": "Run",
+    "Python.Figure.executor": "Run",
+    "Python.Rectangle.executor": "Run",
+    "Python.Square.executor": "Run",
+    "Python.Triangle.executor": "Run",
+    "Python.ai_assistent.executor": "Run",
+    "Python.circle.executor": "Run",
+    "Python.fix_me.executor": "Run",
+    "Python.square.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "hw__docker",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />

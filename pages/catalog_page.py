@@ -20,56 +20,46 @@ class CatalogPage(BasePage):
     PAGINATION = (By.CSS_SELECTOR, "nav.pagination")
 
     def open(self, url=""):
-        logger.info(f"Открытие страницы каталога: {url}")
+        # open уже логирует URL в BasePage — здесь дублирование не нужно
         super().open(url)
         return self
 
     def get_category_title(self):
-        logger.info("Получение заголовка категории")
-        title = self.get_text(self.CATEGORY_TITLE)
-        logger.info(f"Заголовок категории: {title}")
-        return title
+        return self.get_text(self.CATEGORY_TITLE)
 
     def is_product_list_displayed(self):
-        logger.info("Проверка отображения списка товаров")
         return self.is_displayed(self.PRODUCT_LIST)
 
     def find_elements(self, locator, timeout=10):
-        logger.info(f"Поиск элементов: {locator}")
         try:
             elements = WebDriverWait(self.driver, timeout).until(
                 EC.visibility_of_all_elements_located(locator)
             )
-            logger.info(f"Найдено элементов: {len(elements)}")
+            logger.debug(f"Найдено элементов {locator}: {len(elements)}")
             return elements
         except TimeoutException:
-            logger.warning(f"Элементы не найдены за {timeout} секунд: {locator}")
+            logger.warning(f"Элементы не найдены за {timeout} сек: {locator}")
             return []
 
     def get_product_count(self):
-        logger.info("Подсчёт количества товаров")
         products = self.find_elements(self.PRODUCTS)
         count = len(products)
-        logger.info(f"Количество товаров: {count}")
+        logger.info(f"Количество товаров в каталоге: {count}")
         return count
 
     def is_pagination_displayed(self):
-        logger.info("Проверка отображения пагинации")
         try:
-            result = self.is_displayed(self.PAGINATION)
-            logger.info(f"Пагинация отображается: {result}")
-            return result
+            return self.is_displayed(self.PAGINATION)
         except TimeoutException:
-            logger.warning("Пагинация не отображается (таймаут)")
+            logger.debug("Пагинация не отображается")
             return False
 
     def get_first_product_price(self):
-        logger.info("Получение цены первого товара")
         price_text = self.get_text(self.FIRST_PRODUCT_PRICE)
         price_match = re.search(r'[\d.,]+', price_text)
         if price_match:
             price = float(price_match.group().replace(',', '.'))
-            logger.info(f"Цена первого товара: {price}")
+            logger.info(f"Цена первого товара в каталоге: {price}")
             return price
-        logger.warning("Цена не найдена")
+        logger.warning("Цена не найдена в каталоге")
         return 0.0

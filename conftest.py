@@ -1,8 +1,11 @@
 import pytest
+import allure
+import logging
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
-import logging
-import allure
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
+from selenium.webdriver.firefox.service import Service as FirefoxService
 
 # ========== НАСТРОЙКА ЛОГИРОВАНИЯ ==========
 logging.basicConfig(
@@ -17,8 +20,8 @@ logger = logging.getLogger(__name__)
 
 
 def pytest_addoption(parser):
-    parser.addoption("--browser", default="chrome",
-                     help="Выберите браузер: chrome, safari")
+    parser.addoption("--browser", default="firefox",
+                     help="Выберите браузер: chrome, firefox, safari")
     parser.addoption("--headless", action="store_true",
                      help="Запустить браузер в безголовом режиме")
     parser.addoption("--base_url", default="http://localhost:8080",
@@ -32,13 +35,22 @@ def browser(request):
     base_url = request.config.getoption("--base_url")
     request.config.base_url = base_url
 
-    logger.info(f"Запуск браузера: {browser_name}")
+    logger.info(f"Запуск браузера: {browser_name}, headless={headless}")
 
     if browser_name == 'chrome':
         options = ChromeOptions()
         if headless:
             options.add_argument("--headless")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--disable-gpu")
         browser = webdriver.Chrome(options=options)
+    elif browser_name == 'firefox':
+        options = FirefoxOptions()
+        if headless:
+            options.add_argument("--headless")
+        service = FirefoxService(executable_path="/usr/local/bin/geckodriver")
+        browser = webdriver.Firefox(service=service, options=options)
     elif browser_name == 'safari':
         browser = webdriver.Safari()
     else:

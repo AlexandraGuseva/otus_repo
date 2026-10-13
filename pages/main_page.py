@@ -71,8 +71,9 @@ class MainPage(BasePage):
 
     def add_first_product_to_cart(self):
         product = self.wait_for_element(self.FIRST_PRODUCT)
-        actions = ActionChains(self.driver)
-        actions.move_to_element(product).perform()
+
+        # ✅ Прокручиваем к товару через JS (вместо move_to_element)
+        self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", product)
 
         add_button = self.wait_for_element(
             (By.CSS_SELECTOR, ".product-miniature:first-child button[data-button-action='add-to-cart']"))
@@ -87,6 +88,16 @@ class MainPage(BasePage):
             EC.element_to_be_clickable((By.CSS_SELECTOR, "#blockcart-modal > div > div > div.modal-header > button"))
         )
         close_button.click()
+
+        # Явно удаляем модалку из DOM
+        self.driver.execute_script("""
+            var modal = document.querySelector('#blockcart-modal');
+            var backdrop = document.querySelector('.modal-backdrop');
+            if (modal) modal.remove();
+            if (backdrop) backdrop.remove();
+            document.body.classList.remove('modal-open');
+        """)
+
         logger.info("Товар добавлен в корзину")
         return self
 

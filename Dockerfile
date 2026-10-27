@@ -2,10 +2,9 @@ FROM zidzidzid/arm64-selenium-standalone-firefox:1.0.0
 
 WORKDIR /app
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
 COPY . .
+
+RUN pip install --no-cache-dir -r requirements.txt
 
 ENV PYTHONUNBUFFERED=1
 

@@ -2,6 +2,8 @@ import logging
 import time
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 logger = logging.getLogger(__name__)
 
@@ -33,11 +35,16 @@ class AdminLoginPage(BasePage):
         return self
 
     def assert_administration_logged_in(self):
-        time.sleep(5)
-        current_url = self.driver.current_url
-        logger.info(f"Проверка входа. Текущий URL: {current_url}")
-        assert "login" not in current_url.lower(), "Не удалось войти в админку"
-        logger.info("Вход в админку выполнен успешно")
+        logger.info("Проверка успешного входа в админку")
+        try:
+            WebDriverWait(self.driver, 10).until(
+                lambda d: "login" not in d.current_url.lower(),
+            )
+            logger.info("Вход в админку выполнен успешно")
+        except Exception:
+            current_url = self.driver.current_url
+            logger.error(f"Не удалось войти. Текущий URL: {current_url}")
+            raise AssertionError(f"Не удалось войти в админку. Остались на странице: {current_url}")
         return self
 
     def is_logo_displayed(self):

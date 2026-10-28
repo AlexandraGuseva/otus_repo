@@ -6,6 +6,7 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.firefox.service import Service as FirefoxService
+from selenium.webdriver import Remote
 
 # ========== НАСТРОЙКА ЛОГИРОВАНИЯ ==========
 logging.basicConfig(
@@ -41,16 +42,25 @@ def browser(request):
         options = ChromeOptions()
         if headless:
             options.add_argument("--headless")
-        options.add_argument("--no-sandbox")
-        options.add_argument("--disable-dev-shm-usage")
-        options.add_argument("--disable-gpu")
-        browser = webdriver.Chrome(options=options)
+        import os
+        selenoid_url = os.getenv("SELENOID_URL")
+        if selenoid_url:
+            browser = Remote(command_executor=selenoid_url, options=options)
+        else:
+            browser = webdriver.Chrome(options=options)
     elif browser_name == 'firefox':
         options = FirefoxOptions()
         if headless:
             options.add_argument("--headless")
-        service = FirefoxService(executable_path="/usr/local/bin/geckodriver")
-        browser = webdriver.Firefox(service=service, options=options)
+
+        import os
+        selenoid_url = os.getenv("SELENOID_URL")
+
+        if selenoid_url:
+            browser = Remote(command_executor=selenoid_url, options=options)
+        else:
+            service = FirefoxService(executable_path="/usr/local/bin/geckodriver")
+            browser = webdriver.Firefox(service=service, options=options)
     elif browser_name == 'safari':
         browser = webdriver.Safari()
     else:

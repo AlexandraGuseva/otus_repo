@@ -1,0 +1,59 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: prestashop-db
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: prestashop
+    networks:
+      - selenoid
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-padmin"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  prestashop:
+    image: prestashop/prestashop:latest
+    container_name: prestashop
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_SERVER: db
+      DB_NAME: prestashop
+      DB_USER: root
+      DB_PASSWD: admin
+      PS_INSTALL_AUTO: 1
+      PS_DOMAIN: prestashop
+      PS_FOLDER_ADMIN: admin-dev
+      PS_DEV_MODE: 1
+    networks:
+      - selenoid
+    ports:
+      - "8080:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 120s
+
+  tests:
+    build: .
+    container_name: tests
+    depends_on:
+      prestashop:
+        condition: service_healthy
+    networks:
+      - selenoid
+    command: >
+      --browser=firefox
+      --headless
+      --base_url=http://prestashop:80
+    environment:
+      - SELENOID_URL=http://selenoid:4444/wd/hub
+
+networks:
+  selenoid:
+    external: true

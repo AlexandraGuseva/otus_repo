@@ -24,8 +24,8 @@ class TestScenarios:
             admin_page.open_admin_page()
 
         with allure.step("Ввести email и пароль"):
-            admin_page.enter_email("admin@example.com")
-            admin_page.enter_password("Admin123!")
+            admin_page.enter_email("demo@prestashop.com")
+            admin_page.enter_password("admin123")
             admin_page.click_login_in()
             admin_page.assert_administration_logged_in()
 

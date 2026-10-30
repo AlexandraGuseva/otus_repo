@@ -7,6 +7,7 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver import Remote
+import os
 
 # ========== НАСТРОЙКА ЛОГИРОВАНИЯ ==========
 logging.basicConfig(
@@ -38,29 +39,31 @@ def browser(request):
 
     logger.info(f"Запуск браузера: {browser_name}, headless={headless}")
 
-    if browser_name == 'chrome':
-        options = ChromeOptions()
-        if headless:
-            options.add_argument("--headless")
-        import os
-        selenoid_url = os.getenv("SELENOID_URL")
-        if selenoid_url:
-            browser = Remote(command_executor=selenoid_url, options=options)
+    if browser_name in ['chrome', 'firefox']:
+        if browser_name == 'chrome':
+            options = ChromeOptions()
+            if headless:
+                options.add_argument("--headless")
+                options.add_argument("--no-sandbox")
+                options.add_argument("--disable-dev-shm-usage")
+                options.add_argument("--disable-gpu")
         else:
-            browser = webdriver.Chrome(options=options)
-    elif browser_name == 'firefox':
-        options = FirefoxOptions()
-        if headless:
-            options.add_argument("--headless")
+            options = FirefoxOptions()
+            if headless:
+                options.add_argument("--headless")
 
-        import os
         selenoid_url = os.getenv("SELENOID_URL")
 
         if selenoid_url:
+            # Запуск на удаленном сервисе (Selenoid)
             browser = Remote(command_executor=selenoid_url, options=options)
         else:
-            service = FirefoxService(executable_path="/usr/local/bin/geckodriver")
-            browser = webdriver.Firefox(service=service, options=options)
+            # Локальный запуск (на Mac)
+            if browser_name == 'chrome':
+                browser = webdriver.Chrome(options=options)
+            else:
+                browser = webdriver.Firefox(options=options)
+
     elif browser_name == 'safari':
         browser = webdriver.Safari()
     else:

@@ -24,8 +24,8 @@ pipeline {
                     docker run --rm \
                     --network selenoid \
                     -e SELENOID_URL=${params.SELENOID_URL} \
-                    -v \$(pwd):/app \
-                    -v \$(pwd)/allure-results:/app/allure-results \
+                    -v "\$(pwd):/app" \
+                    -v "\$(pwd)/allure-results:/app/allure-results" \
                     otus_repo-tests \
                     pytest tests/ -v \
                     --browser=${params.BROWSER} \

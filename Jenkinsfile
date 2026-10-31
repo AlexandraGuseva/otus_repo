@@ -18,12 +18,14 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                // Запускаем тесты в Docker-контейнере
+                sh 'mkdir -p allure-results'
+
                 sh """
                     docker run --rm \
                     --network selenoid \
                     -e SELENOID_URL=${params.SELENOID_URL} \
                     -v \$(pwd):/app \
+                    -v \$(pwd)/allure-results:/app/allure-results \
                     otus_repo-tests \
                     pytest tests/ -v \
                     --browser=${params.BROWSER} \

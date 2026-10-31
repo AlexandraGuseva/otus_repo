@@ -12,8 +12,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Замени ссылку на свой репозиторий, если нужно
-                git 'https://github.com/AlexandraGuseva/otus_repo.git'
+                git branch: 'hw_docker', url: 'https://github.com/AlexandraGuseva/otus_repo.git'
             }
         }
 

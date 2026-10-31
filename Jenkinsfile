@@ -26,7 +26,6 @@ pipeline {
                     -e SELENOID_URL=${params.SELENOID_URL} \
                     -v "\$(pwd)/allure-results:/app/allure-results" \
                     otus_repo-tests \
-                    pytest tests/ -v \
                     --browser=${params.BROWSER} \
                     --base_url=${params.BASE_URL} \
                     --alluredir=/app/allure-results

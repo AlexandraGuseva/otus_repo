@@ -28,10 +28,10 @@ pipeline {
                     -v "\$(pwd)/allure-results:/app/allure-results" \
                     otus_repo-tests \
                     pytest tests/ -v \
+                    -c conftest.py \
                     --browser=${params.BROWSER} \
                     --base_url=${params.BASE_URL} \
                     --alluredir=allure-results \
-                    -n ${params.THREADS}
                 """
             }
         }

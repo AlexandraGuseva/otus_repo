@@ -27,7 +27,7 @@ pipeline {
                     -v "\$(pwd):/app" \
                     -v "\$(pwd)/allure-results:/app/allure-results" \
                     otus_repo-tests \
-                    pytest tests/ -v \
+                    pytest tests/ -v -c conftest.py \
                     --browser=${params.BROWSER} \
                     --base_url=${params.BASE_URL} \
                     --alluredir=/app/allure-results

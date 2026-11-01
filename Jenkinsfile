@@ -27,7 +27,7 @@ pipeline {
                     -v "\$(pwd)/allure-results:/app/allure-results" \
                     otus_repo-tests \
                     --browser=${params.BROWSER} \
-                    --base_url=${params.BASE_URL} \
+                    --base_url=${params.BASE_URL.trim()} \
                     --alluredir=/app/allure-results
                 """
             }

@@ -3,7 +3,7 @@ pipeline {
 
     parameters {
         string(name: 'SELENOID_URL', defaultValue: 'http://host.docker.internal:4444/wd/hub', description: 'Адрес Selenoid')
-        string(name: 'BASE_URL', defaultValue: 'http://host.docker.internal:8080', description: 'Адрес PrestaShop')
+        string(name: 'BASE_URL', defaultValue: 'http://prestashop:80', description: 'Адрес PrestaShop')
         choice(name: 'BROWSER', choices: ['firefox', 'chrome'], description: 'Браузер')
         string(name: 'BROWSER_VERSION', defaultValue: '120.0', description: 'Версия браузера')
         string(name: 'THREADS', defaultValue: '1', description: 'Количество потоков')

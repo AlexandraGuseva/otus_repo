@@ -28,6 +28,11 @@ def pytest_addoption(parser):
                      help="Запустить браузер в безголовом режиме")
     parser.addoption("--base_url", default="http://localhost:8080",
                      help="Базовый URL тестируемого приложения")
+    # НОВЫЕ ПАРАМЕТРЫ ДЛЯ ДЗ:
+    parser.addoption("--browser_version", default="latest",
+                     help="Версия браузера для Selenoid")
+    parser.addoption("--threads", default="1",
+                     help="Количество потоков (обрабатывается pytest-xdist)")
 
 
 @pytest.fixture
@@ -35,9 +40,10 @@ def browser(request):
     browser_name = request.config.getoption("--browser")
     headless = request.config.getoption("--headless")
     base_url = request.config.getoption("--base_url")
+    browser_version = request.config.getoption("--browser_version")  # Получаем версию
     request.config.base_url = base_url
 
-    logger.info(f"Запуск браузера: {browser_name}, headless={headless}")
+    logger.info(f"Запуск браузера: {browser_name}, headless={headless}, version={browser_version}")
 
     if browser_name in ['chrome', 'firefox']:
         if browser_name == 'chrome':
@@ -56,6 +62,11 @@ def browser(request):
 
         if selenoid_url:
             # Запуск на удаленном сервисе (Selenoid)
+            # Устанавливаем версию браузера для Selenoid
+            options.set_capability("browserVersion", browser_version)
+            # Включаем VNC, чтобы видеть, что происходит (опционально, но полезно)
+            options.set_capability("selenoid:options", {"enableVNC": True})
+
             browser = Remote(command_executor=selenoid_url, options=options)
         else:
             # Локальный запуск (на Mac)

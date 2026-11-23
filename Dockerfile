@@ -8,4 +8,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 ENV PYTHONUNBUFFERED=1
 
-ENTRYPOINT ["pytest", "tests/", "-v"]
+CMD ["pytest", "tests/", "-v"]

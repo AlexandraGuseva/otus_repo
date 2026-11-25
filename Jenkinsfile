@@ -23,32 +23,32 @@ pipeline {
         }
 
         stage('Run Tests') {
-        steps {
-            // Очищаем старую папку перед запуском
-            sh 'rm -rf allure-results'
-            sh 'mkdir -p allure-results'
+            steps {
+                sh 'rm -rf allure-results'
+                sh 'mkdir -p allure-results'
 
-            sh """
-                docker run --rm \
-                -u root \
-                --network selenoid \
-                -e SELENOID_URL=${params.SELENOID_URL} \
-                -v "\$(pwd)/allure-results:/app/allure-results" \
-                otus_repo-tests \
-                tests/ \
-                --browser=${params.BROWSER} \
-                --browser_version=${params.BROWSER_VERSION} \
-                --base_url=${params.BASE_URL.trim()} \
-                --alluredir=/app/allure-results \
-                -n ${params.THREADS} -v || true
-            """
+                sh """
+                    docker run --rm \
+                    -u root \
+                    --network selenoid \
+                    -e SELENOID_URL=${params.SELENOID_URL} \
+                    -v "\$(pwd)/allure-results:/app/allure-results" \
+                    otus_repo-tests \
+                    tests/ \
+                    --browser=${params.BROWSER} \
+                    --browser_version=${params.BROWSER_VERSION} \
+                    --base_url=${params.BASE_URL.trim()} \
+                    --alluredir=/app/allure-results \
+                    -n ${params.THREADS} -v || true
+                """
+            }
         }
     }
-}
 
-post {
-    always {
-        sh 'chmod -R 777 allure-results || true'
-        allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+    post {
+        always {
+            sh 'chmod -R 777 allure-results || true'
+            allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+        }
     }
 }

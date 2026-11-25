@@ -32,6 +32,7 @@ pipeline {
                 // -n ${params.THREADS} - это аргумент для pytest-xdist
                 sh """
                     docker run --rm \
+                    -u root \
                     --network selenoid \
                     -e SELENOID_URL=${params.SELENOID_URL} \
                     -v "\$(pwd)/allure-results:/app/allure-results" \

@@ -50,6 +50,8 @@ pipeline {
 
     post {
         always {
+            //Права на чтение файлов
+            sh 'chmod -R 777 allure-results || true'
             // Генерация отчета Allure
             allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
         }

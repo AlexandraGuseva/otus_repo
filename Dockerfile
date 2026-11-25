@@ -8,4 +8,6 @@ RUN pip install --no-cache-dir --default-timeout=100 -i https://pypi.tuna.tsingh
 
 ENV PYTHONUNBUFFERED=1
 
-CMD ["pytest", "tests/", "-v"]
+ENTRYPOINT ["pytest"]
+
+CMD ["tests/", "-v"]

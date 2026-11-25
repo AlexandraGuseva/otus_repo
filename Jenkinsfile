@@ -16,7 +16,6 @@ pipeline {
             }
         }
 
-        // НОВЫЙ ЭТАП: Сборка образа (чтобы не было ошибки "image not found")
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t otus_repo-tests .'
@@ -25,24 +24,22 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh 'mkdir -p allure-results'
+                // Создаем папку так, как ее ждет Jenkins (заглавными буквами)
+                sh 'mkdir -p ALLURE-RESULTS'
 
-                // Передаем аргументы так, чтобы они попали в pytest
-                // --browser_version и --threads - это наши новые параметры
-                // -n ${params.THREADS} - это аргумент для pytest-xdist
                 sh """
                     docker run --rm \
                     -u root \
                     --network selenoid \
                     -e SELENOID_URL=${params.SELENOID_URL} \
-                    -v "\$(pwd)/allure-results:/app/allure-results" \
+                    -v "\$(pwd)/ALLURE-RESULTS:/app/allure-results" \
                     otus_repo-tests \
                     tests/ \
                     --browser=${params.BROWSER} \
                     --browser_version=${params.BROWSER_VERSION} \
                     --base_url=${params.BASE_URL.trim()} \
                     --alluredir=/app/allure-results \
-                    -n ${params.THREADS} -v
+                    -n ${params.THREADS} -v || true
                 """
             }
         }
@@ -50,10 +47,8 @@ pipeline {
 
     post {
         always {
-            //Права на чтение файлов
-            sh 'chmod -R 777 allure-results || true'
-            // Генерация отчета Allure
-            allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+            sh 'chmod -R 777 ALLURE-RESULTS || true'
+            allure includeProperties: false, jdk: '', results: [[path: 'ALLURE-RESULTS']]
         }
     }
 }

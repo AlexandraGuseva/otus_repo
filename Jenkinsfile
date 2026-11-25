@@ -48,7 +48,9 @@ pipeline {
     post {
         always {
             sh 'chmod -R 777 allure-results || true'
-            allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+            allure includeProperties: false,
+                   jdk: '',
+                   results: [[path: 'allure-results']]
         }
     }
 }

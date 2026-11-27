@@ -39,7 +39,7 @@ pipeline {
                     --browser_version=${params.BROWSER_VERSION} \
                     --base_url=${params.BASE_URL.trim()} \
                     --alluredir=/app/allure-results \
-                    -n ${params.THREADS} -v || true
+                    -n ${params.THREADS} -v
                 """
             }
         }
